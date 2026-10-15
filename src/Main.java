@@ -91,13 +91,40 @@ public class Main {
         int id=0;
         for(Card card : house.hand){
             if(id!=house.hand.length-1&&house.hand[id+1]!=null){
-                System.out.println(card);
                 id+=1;
             }else{
-                System.out.println("   -- unknown card --");
+                house.hand[id].value+=200;
                 break;
             }
         }
+        StringBuilder output= new StringBuilder();
+        for(int i=0;i<7;i++){
+            for(int n=0;n<=id;n++){
+                output.append(house.hand[n].display(i+1)).append("\t");
+            }
+            output.append("\n");
+        }
+        house.hand[id].value-=200;
+        System.out.println(output);
+    }
+
+    public static void displayPlayer(House house){
+        int id=0;
+        for(Card card : house.hand){
+            if(id!=house.hand.length-1&&house.hand[id+1]!=null){
+                id+=1;
+            }else{
+                break;
+            }
+        }
+        StringBuilder output= new StringBuilder();
+        for(int i=0;i<7;i++){
+            for(int n=0;n<=id;n++){
+                output.append(house.hand[n].display(i+1)).append("\t");
+            }
+            output.append("\n");
+        }
+        System.out.println(output);
     }
 
     public static int winCondition(House house,House player){
@@ -172,11 +199,9 @@ public class Main {
 
     public static void mainScreen(Player player, House house,Card[] deck){
         System.out.println("\nplayer's hand:");
-        for(Card card : player.hand){
-            if(card!=null)System.out.println(card);
-        }
+        displayPlayer(player);
 
-        System.out.println("\nhouse's hand:");
+        System.out.println("house's hand:");
         displayHouse(house);
 
         turnp(player,deck);
@@ -205,7 +230,7 @@ public class Main {
 
     public static int ask(Player player){
         Scanner scan = new Scanner(System.in);
-        System.out.println("\n1 - Draw a card\n2 - Pass");
+        System.out.println("[ 1 - Draw a card | 2 - Pass ]");
         int ans=scan.nextInt();
         if(ans!=2&&ans!=1){
             System.out.println("[!!!]Please input either 1 or 2");
