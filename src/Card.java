@@ -28,19 +28,19 @@ public class Card {
                     else if(this.value<4){result="|"+this.name+"    "+this.symbols[suit-1]+"     |";}
                     else if(this.value<10){result="|"+this.name+" "+this.symbols[suit-1]+"     "+this.symbols[suit-1]+"  |";}
                     else if(this.value==10){result="|10"+this.symbols[suit-1]+"     "+this.symbols[suit-1]+"  |";}
-                    else{result="| +-------+ |";}
+                    else{result="|?+-------+ |";}
                 }else if(this.name.matches("K\\w*")){
                     if(this.value==10){
                         result="|K  \\vvv//\\ |";
-                    }else{result="| +-------+ |";}
+                    }else{result="|?+-------+ |";}
                 }else if(this.name.matches("Q\\w*")){
                     if(this.value==10){
                         result="|Q   |_-\\\\| |";
-                    }else{result="| +-------+ |";}
+                    }else{result="|?+-------+ |";}
                 }else{
                     if(this.value==10){
                         result="|J  \\┴┴┴/ / |";
-                    }else{result="| +-------+ |";}
+                    }else{result="|?+-------+ |";}
                 }
             }
             case 3 -> {
@@ -111,19 +111,19 @@ public class Card {
                     else if(this.value==2||this.value==3){result="|     "+this.symbols[suit-1]+"    "+this.name+"|";}
                     else if(this.value==10){result="|  "+this.symbols[suit-1]+"     "+this.symbols[suit-1]+"10|";}
                     else if(this.value<10){result="|  "+this.symbols[suit-1]+"     "+this.symbols[suit-1]+" "+this.name+"|";}
-                    else{result="| +-------+ |";}
+                    else{result="| +-------+?|";}
                 }else if(this.name.matches("K\\w*")){
                     if(this.value==10){
                         result="| \\//^^^\\  K|";
-                    }else{result="| +-------+ |";}
+                    }else{result="| +-------+?";}
                 }else if(this.name.matches("Q\\w*")){
                     if(this.value==10){
                         result="| |\\\\-‾|   Q|";
-                    }else{result="| +-------+ |";}
+                    }else{result="| +-------+?|";}
                 }else{
                     if(this.value==10){
                         result="| / /TTT\\  J|";
-                    }else{result="| +-------+ |";}
+                    }else{result="| +-------+?|";}
                 }
             }
             case 7 -> result="╰-----------╯";
